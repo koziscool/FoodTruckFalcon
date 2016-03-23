@@ -1,6 +1,12 @@
 class FtfsController < ApplicationController
 
   def new
+    @truck = Truck.new
+    @truck_data = @truck.make_request
+
+    pp @truck_data
+
+
     render :truck_show
   end 
 

@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 
 gem 'httparty'
 gem 'hirb'
+gem 'better_errors'
+
 
 ########
 

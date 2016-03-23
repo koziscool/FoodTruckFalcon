@@ -8,7 +8,7 @@ class Truck < ActiveRecord::Base
   end
 
   def make_request
-    request_string = BASE_STRING + ? + OPTIONS
+    request_string = BASE_STRING + "?" + OPTIONS
     @truck_data_response = HTTParty.get( request_string )
   end
 

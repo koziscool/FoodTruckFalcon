@@ -8,6 +8,7 @@ class AddcolumnsToTruckData < ActiveRecord::Migration
       t.string  :str_address
       t.string  :location_description
       t.timestamps null: false
+    end
   end
 end
 
