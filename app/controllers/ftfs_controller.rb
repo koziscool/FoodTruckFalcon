@@ -3,7 +3,9 @@ class FtfsController < ApplicationController
   def index
 
     @trucks = Truck.all
-    # @truck_data = @truck_class.make_request
+
+    remove_dupes
+
     @close_trucks = []
     me = [37.774929, -122.419416]
     
@@ -38,7 +40,19 @@ class FtfsController < ApplicationController
 
   private
   def remove_dupes
+    @new_trucks = []
+    location_hash = {}
 
+    @trucks.each do | truck |
+      if truck.latitude && truck.longitude
+        key = "#{truck.latitude},#{truck.longitude}"
+        if !location_hash[key]
+          location_hash[key] = key
+          @new_trucks << truck
+        end
+      end
+    end
+    @trucks = @new_trucks
   end
 
 
