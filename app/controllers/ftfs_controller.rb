@@ -37,9 +37,12 @@ class FtfsController < ApplicationController
 
     @close_trucks = []
     me = [37.774929, -122.419416]
-    @origin = Geocoder.new
-    origin_string = params[:address_string] + @origin.city_string
-    origin_hash = { :origin => origin_string }
+
+    # origin_string = params[:address_string] + @origin.city_string
+    # origin_hash = { :origin => origin_string }
+
+    a = Geokit::Geocoders::GoogleGeocoder.geocode '140 Market St, San Francisco, CA'
+    puts a.ll
     
     @trucks.each do | truck |
       if truck.latitude && truck.longitude

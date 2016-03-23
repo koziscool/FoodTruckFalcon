@@ -2,7 +2,7 @@
 
 <%= form_tag( use_address_path, :method => "POST" ) do   %>
 
-    <%= label_tag(:address, "address") %>
+    <%= label_tag(:address, "address in San Francisco, CA (number and street only)") %>
     <%= text_field_tag('address_string') %>
 
     <%= hidden_field_tag( :form_authenticity_token, "authenticity_token" ) %>
