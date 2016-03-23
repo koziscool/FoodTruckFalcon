@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+@truck_class = Truck.new
+@truck_data = @truck_class.make_request
+
+@truck_data.each do | truck_json |
+  
+  # latitude = truck_json['location']['coordinates'][1]
+  # longitude = truck_json['location']['coordinates'][0]
+
+  Truck.create( 
+      name: truck_json['applicant'],
+      str_address: truck_json['address'],
+      dayshours: truck_json['dayshours'],
+      latitude: truck_json['latitude'],
+      longitude: truck_json['longitude'],
+      location_description: truck_json['locationdescription']
+    )
+end
+
