@@ -55,5 +55,23 @@ class FtfsController < ApplicationController
     @trucks = @new_trucks
   end
 
+  # def get_close_trucks( start_location )
+  #   @trucks.each do | truck |
+  #     if truck.latitude && truck.longitude
+  #       t_dist = [truck.latitude, truck.longitude]
+  #       distance = Truck.distance( start_location, t_dist)
+  #       if distance < 1500
+  #         truck.distance = distance.floor
+  #         @close_trucks << truck
+  #       end
+  #     end
+  #   end
+
+  #   @close_trucks.sort! do | truck1, truck2 |
+  #     truck1.distance <=> truck2.distance
+  #   end
+
+  # end
+
 
 end
