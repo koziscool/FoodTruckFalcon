@@ -2,8 +2,12 @@
 class Truck < ActiveRecord::Base
 
   attr_accessor :distance
+  attr_reader :begin_latitude, :begin_longitude
+
   @distance = 999999
-  
+  @begin_latitude = 37.774929
+  @begin_longitude = -122.419416
+
   BASE_STRING = "https://data.sfgov.org/resource/6a9r-agq8.json"
   # OPTIONS = "$limit=8"
   OPTIONS = ""
