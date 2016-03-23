@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  root 'ftfs#new'
+
+  get '/new' => 'ftfs#new'
+
+  post '/use_address' => 'ftfs#use_address'
+  post '/use_coordinates' => 'ftfs#use_coordinates'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
