@@ -1,2 +1,35 @@
 
-<span> <%= ft_truck_data %> </span>
+
+<div class="truck-row">
+  <div class="distance">
+    Distance (meters)
+  </div>
+  <div class="name">
+    name
+  </div>
+  <div class="address">
+    address
+  </div>
+  <div class="hours">
+    Hours of operation
+  </div>
+</div>
+</br>
+
+<% close_trucks.each do |truck| %>
+  <div class="truck-row">
+    <div class="distance">
+      <%= truck.distance %>
+    </div>
+    <div class="name">
+      <%= truck.name %>
+    </div>
+    <div  class="address">
+      <%= truck.str_address %>
+    </div>
+    <div class="hours">
+      <%= truck.dayshours %>
+    </div>
+  </div>
+  </br>
+<% end %>

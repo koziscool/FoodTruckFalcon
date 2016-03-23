@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'ftfs#new'
+  root 'ftfs#index'
 
-  get '/new' => 'ftfs#new'
+  get '/index' => 'ftfs#index'
 
   post '/use_address' => 'ftfs#use_address'
   post '/use_coordinates' => 'ftfs#use_coordinates'

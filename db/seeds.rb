@@ -9,11 +9,7 @@
 
 @truck_class = Truck.new
 @truck_data = @truck_class.make_request
-
 @truck_data.each do | truck_json |
-  
-  # latitude = truck_json['location']['coordinates'][1]
-  # longitude = truck_json['location']['coordinates'][0]
 
   Truck.create( 
       name: truck_json['applicant'],

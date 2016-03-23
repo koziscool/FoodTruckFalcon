@@ -1,3 +1,28 @@
 // Place all the styles related to the ftfs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.distance {
+  width: 100px;
+  text-align: center;
+  display: inline-block;
+}
+
+.name {
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+}
+
+.hours {
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+}
+
+.address {
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+}
+

@@ -1,23 +1,29 @@
 class FtfsController < ApplicationController
 
-  def new
-    @truck_class = Truck.new
-    @truck_data = @truck_class.make_request
+  def index
 
-    @truck_data.each do | truck_json |
-      pp truck_json['applicant']
-      pp truck_json['address']
-      pp truck_json['dayshours']
-
-      latitude = truck_json['location']['coordinates'][0]
-      longitude = truck_json['location']['coordinates'][1]
-
-      pp latitude
-      pp longitude
+    @trucks = Truck.all
+    # @truck_data = @truck_class.make_request
+    @close_trucks = []
+    me = [37.774929, -122.419416]
+    
+    @trucks.each do | truck |
+      if truck.latitude && truck.longitude
+        t_dist = [truck.latitude, truck.longitude]
+        distance = Truck.distance( me, t_dist)
+        if distance < 1500
+          truck.distance = distance.floor
+          @close_trucks << truck
+        end
+      end
     end
 
+    @close_trucks.sort! do | truck1, truck2 |
+      truck1.distance <=> truck2.distance
+    end
 
-    # pp @truck_data
+    @closer_trucks = @close_trucks[0..10]
+
     render :truck_show
   end 
 
@@ -28,5 +34,12 @@ class FtfsController < ApplicationController
   def use_coordinates
     render :truck_show
   end
+
+
+  private
+  def remove_dupes
+
+  end
+
 
 end
