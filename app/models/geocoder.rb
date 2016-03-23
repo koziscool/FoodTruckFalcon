@@ -1,10 +1,9 @@
 
 
+class Geocoder < ActiveRecord::Base
+  acts_as_mappable
+  attr_accessor :city_string
 
-class Geocoder
-
-  def initialize
-
-  end
+  @city_string = ", San Francisco, CA"
 
 end

@@ -30,6 +30,33 @@ class FtfsController < ApplicationController
   end 
 
   def use_address
+
+    @trucks = Truck.all
+
+    remove_dupes
+
+    @close_trucks = []
+    me = [37.774929, -122.419416]
+    @origin = Geocoder.new
+    origin_string = params[:address_string] + @origin.city_string
+    origin_hash = { :origin => origin_string }
+    
+    @trucks.each do | truck |
+      if truck.latitude && truck.longitude
+        t_dist = [truck.latitude, truck.longitude]
+        distance = Truck.distance( me, t_dist)
+        if distance < 1500
+          truck.distance = distance.floor
+          @close_trucks << truck
+        end
+      end
+    end
+
+    @close_trucks.sort! do | truck1, truck2 |
+      truck1.distance <=> truck2.distance
+    end
+
+    @closer_trucks = @close_trucks[0..10]
     render :truck_show
   end 
 

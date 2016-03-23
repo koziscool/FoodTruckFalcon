@@ -1,0 +1,12 @@
+
+
+<%= form_tag( use_address_path, :method => "POST" ) do   %>
+
+    <%= label_tag(:address, "address") %>
+    <%= text_field_tag('address_string') %>
+
+    <%= hidden_field_tag( :form_authenticity_token, "authenticity_token" ) %>
+
+    <%= submit_tag("submit address") %>
+
+<%  end %>

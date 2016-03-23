@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323184107) do
+ActiveRecord::Schema.define(version: 20160323223052) do
+
+  create_table "geocoders", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
+  end
 
   create_table "trucks", force: :cascade do |t|
     t.string   "name"
