@@ -12,5 +12,4 @@ class FtfsController < ApplicationController
     render :truck_show
   end
 
-
 end
