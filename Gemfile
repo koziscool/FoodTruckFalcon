@@ -1,11 +1,18 @@
 source 'https://rubygems.org'
 
 
+
+
 ###### mine
+
+ruby '2.2.2'
 
 gem 'httparty'
 gem 'hirb'
 gem 'better_errors'
+gem 'geokit'
+gem 'geokit-rails'
+gem 'gmaps4rails'
 
 
 ########
@@ -52,5 +59,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
 

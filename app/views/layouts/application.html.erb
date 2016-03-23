@@ -10,20 +10,11 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuySn72zfYzUb_89cYYFC7NsWnC9OYzOA&callback=initMap">
     </script>
 
- <script>
-function initMap() {
-  // Create a map object and specify the DOM element for display.
-  var map = new google.maps.Map(document.getElementById('new-map'), {
-    center: {lat: 37.774929, lng: -122.419416 },
-    scrollwheel: false,
-    zoom: 8
-  });
-}
-</script>
+
 
 
 </head>
-<body>
+<body id= "<%=controller_name%>">
 
 <%= yield %>
 
